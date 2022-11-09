@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles = createGlobalStyle `
+export const GlobalStyles = createGlobalStyle`
  body {
   * {
   margin: 0;
@@ -8,8 +8,8 @@ export const GlobalStyles = createGlobalStyle `
   box-sizing: border-box;
   outline: none;
 }
-  background: ${props => props.theme.body};
-  color: ${props => props.theme.fontColor};
-font-family: 'Nunito Sans', sans-serif;
+  background: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
+  font-family: 'Nunito Sans', sans-serif;
  }
-`
+`;

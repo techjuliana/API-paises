@@ -1,13 +1,17 @@
 import { Card, Container } from "./styled";
 import { Link } from "react-router-dom";
-export default function Home({ pais, img, populacao, regiao, capital }) {
-  console.log({ populacao });
+// import Filtros from "../../components/filtros";
+export default function Home({ pais, img, populacao, regiao, capital, id }) {
+  // console.log({ pais });
+
 
   return (
+    // <Filtros/>
+    <div>
     <Container>
       <Card>
         <section>
-          <Link to={`/pais?text=${pais}`}>
+          <Link to={`/pais?text=${id}`}>
             <img src={img} alt="" />
           </Link>
 
@@ -18,5 +22,6 @@ export default function Home({ pais, img, populacao, regiao, capital }) {
         </section>
       </Card>
     </Container>
+    </div>
   );
 }
