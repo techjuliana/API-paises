@@ -1,9 +1,10 @@
-import { Container, Card } from "./styled";
+import { Card, Container } from "./styled";
 export default function Home({ pais, img, populacao, regiao, capital }) {
   console.log({ populacao });
 
   return (
     <Container>
+   
       <Card>
         <img src={img} alt="" />
         <h3>{pais}</h3>
@@ -12,5 +13,6 @@ export default function Home({ pais, img, populacao, regiao, capital }) {
         <h5>Capital:{capital}</h5>
       </Card>
     </Container>
+   
   );
 }
