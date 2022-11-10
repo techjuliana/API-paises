@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Voltar, Container } from "./styled";
 export default function Pais({
   pais,
   img,
@@ -13,12 +14,12 @@ export default function Pais({
   front,
 }) {
   return (
-    <div>
-      <button>
+    <Container>
+      <Voltar>
         <Link to={`/`}>
           <h3>Voltar</h3>
         </Link>
-      </button>
+      </Voltar>
 
       <section>
         <img src={img} alt="" />
@@ -39,6 +40,6 @@ export default function Pais({
       <section>
         <h4>Países Fronteiriços:{front}</h4>
       </section>
-    </div>
+    </Container>
   );
 }

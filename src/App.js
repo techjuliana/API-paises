@@ -4,7 +4,6 @@ import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./theme/theme";
 import Home from "./pages/home";
 import Header from "./components/header";
-import { Container } from "./styled";
 import Pais from "./pages/pais";
 function App() {
   const [theme, setTheme] = useState("light");
@@ -30,7 +29,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-      <Container>
+      <div>
         <Header funcao={themeToggler} />
 
         {informacao?.map((name, index) => (
@@ -61,7 +60,7 @@ function App() {
             capital={name.capital}
           />
         ))}
-      </Container>
+      </div>
     </ThemeProvider>
   );
 }
