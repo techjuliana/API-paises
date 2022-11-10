@@ -8,22 +8,22 @@ import { Container } from "./styled";
 import Pais from "./pages/pais";
 function App() {
   const [theme, setTheme] = useState("light");
-  const [comentario, setComentario] = useState([]);
+  const [informacao, setInformacao] = useState([]);
 
-  function pegandoComentario() {
+  function pegandoInformacao() {
     fetch("https://restcountries.com/v3.1/all")
       .then((resp) => resp.json())
       // .then((resp) => console.log(resp))
       .then((name) => {
-        setComentario(name);
+        setInformacao(name);
       });
   }
 
   useEffect(() => {
-    pegandoComentario();
+    pegandoInformacao();
   }, []);
 
-  //MUDAR COR
+  //MUDAR TEMA
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
@@ -33,7 +33,7 @@ function App() {
       <Container>
         <Header funcao={themeToggler} />
 
-        {comentario?.map((name, index) => (
+        {informacao?.map((name, index) => (
           <Pais
             key={index}
             img={name.flags.png}
@@ -50,7 +50,7 @@ function App() {
           />
         ))}
 
-        {comentario?.map((name, index) => (
+        {informacao?.map((name, index) => (
           <Home
             key={index}
             id={name.name.common}
