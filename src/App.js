@@ -8,7 +8,7 @@ import Pais from "./pages/pais";
 import Header from "./components/header";
 import Detalhes from "./components/detalhes";
 import Cards from "./components/cards";
-
+import { Grid } from "@mui/material";
 function App() {
   const [theme, setTheme] = useState("light");
   const [informacao, setInformacao] = useState([]);
@@ -41,8 +41,10 @@ function App() {
 
         <Header funcao={themeToggler} />
 
+<Grid container>
         {informacao?.map((name, index) => (
-          <Cards
+          <Grid item xs={4}>
+          <Cards 
             key={index}
             id={name.name.common}
             img={name.flags.png}
@@ -51,8 +53,10 @@ function App() {
             regiao={name.region}
             capital={name.capital}
           />
+          </Grid>
         ))}
-       
+        </Grid>
+
         {informacao?.map((name, index) => (
           <Detalhes
             key={index}
