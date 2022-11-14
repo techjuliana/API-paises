@@ -1,23 +1,15 @@
-import { Card, Container } from "./styled";
-import { Link } from "react-router-dom";
-// import Filtros from "../../components/filtros";
-export default function Home({ pais, img, populacao, regiao, capital, id }) {
+import { Card } from "../../components/cards/styled";
+import Filtros from "../../components/filtros";
+import Header from "../../components/header";
+import { Container } from "./styled";
+
+export default function Home() {
   return (
-    // <Filtros/>
     <div>
       <Container>
-        <Card>
-          <section>
-            <Link to={`/pais?text=${pais}`}>
-              <img src={img} alt="" />
-            </Link>
-
-            <h3>{pais}</h3>
-            <h5>População:{populacao}</h5>
-            <h5>Região: {regiao}</h5>
-            <h5>Capital:{capital}</h5>
-          </section>
-        </Card>
+        <Header />
+        <Filtros />
+        <Card />
       </Container>
     </div>
   );

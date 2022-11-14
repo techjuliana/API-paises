@@ -1,5 +1,4 @@
 import { Container, Titulo, Tema } from "./styled";
-
 export default function Header({ funcao }) {
   return (
     <Container>

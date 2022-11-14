@@ -12,7 +12,14 @@ export const GlobalStyles = createGlobalStyle`
   text-decoration:none;
   color:inherit;
 }
-padding-top:8rem;
+
+display: flex;
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding-top:14rem;
   background: ${(props) => props.theme.body};
   color: ${(props) => props.theme.text};
   font-family: 'Nunito Sans', sans-serif;
