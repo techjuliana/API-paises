@@ -7,7 +7,7 @@ import Home from "./pages/home";
 import Pais from "./pages/pais";
 import Header from "./components/header";
 import Detalhes from "./components/detalhes";
-import { Card } from "./components/cards/styled";
+import Cards from "./components/cards";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -40,6 +40,18 @@ function App() {
       </Routes>
 
         <Header funcao={themeToggler} />
+
+        {informacao?.map((name, index) => (
+          <Cards
+            key={index}
+            id={name.name.common}
+            img={name.flags.png}
+            pais={name.name.common}
+            populacao={name.population}
+            regiao={name.region}
+            capital={name.capital}
+          />
+        ))}
        
         {informacao?.map((name, index) => (
           <Detalhes
@@ -58,17 +70,7 @@ function App() {
           />
         ))}
 
-        {informacao?.map((name, index) => (
-          <Card
-            key={index}
-            id={name.name.common}
-            img={name.flags.png}
-            pais={name.name.common}
-            populacao={name.population}
-            regiao={name.region}
-            capital={name.capital}
-          />
-        ))}
+        
      
     </ThemeProvider>
   );

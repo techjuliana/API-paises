@@ -1,16 +1,18 @@
-import { Card } from "../../components/cards/styled";
+import Cards from "../../components/cards";
 import Filtros from "../../components/filtros";
 import Header from "../../components/header";
-import { Container } from "./styled";
+import { Cardst } from "./styled";
 
 export default function Home() {
   return (
     <div>
-      <Container>
+   
         <Header />
         <Filtros />
-        <Card />
-      </Container>
+        <Cardst>
+        <Cards />
+        </Cardst>
+    
     </div>
   );
 }

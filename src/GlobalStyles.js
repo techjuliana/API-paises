@@ -13,13 +13,9 @@ export const GlobalStyles = createGlobalStyle`
   color:inherit;
 }
 
-display: flex;
-  flex: 1;
-  width: 100vw;
-  height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding-top:14rem;
   background: ${(props) => props.theme.body};
   color: ${(props) => props.theme.text};
   font-family: 'Nunito Sans', sans-serif;
