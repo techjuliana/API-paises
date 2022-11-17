@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom'
 import React, { useEffect, useState } from "react";
+import api from './../../services/api';
 import {
   Voltar,
   Container,
@@ -12,25 +13,40 @@ import {
   Info,
   Centro,
   ContainerPais,
+  Carregando,
 } from "./styled";
 export default function Detalhes() {
-
   const {id} = useParams();
+  const [informacao, setInformacao] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  const [informacao, setInformacao] = useState([]);
+ useEffect(()=>{
+    async function carregarDetalhes(){
+      await api.get(`/name/${id}`)
+      .then((response)=>{
+        setInformacao(response.data);
+        setLoading(false);
+      })
+      .catch(()=>{
+        <h1>Pais não encontrado</h1>
+      })
+    }
 
-  function pegandoInformacao() {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((resp) => resp.json())
-      // .then((resp) => console.log(resp))
-      .then((name) => {
-        setInformacao(name);
-      });
+    carregarDetalhes();
+  
+
+    return () => {
+      console.log("sucesso :)")
+    }
+  }, [])
+
+  if(loading){
+    return(
+      <Carregando>
+        <h1>Carregando detalhes...</h1>
+      </Carregando>
+    )
   }
-
-  useEffect(() => {
-    pegandoInformacao();
-  }, []);
 
   return (
     <Container>
@@ -41,27 +57,27 @@ export default function Detalhes() {
           </Link>
         </Voltar>
       </Info>
-      {informacao?.map((name, index) => (
+      {informacao?.map((informacao, index) => (
       <ContainerPais key={index}>
-        <img src={name.flags.png} alt="" />
+        <img src={informacao.flags.png} alt="" />
         <Centro>
           <Name>{id}</Name>
           <Coluna>
             <Lista1>
-              <li>Nativo: <span>{name.name.official}</span></li>
-              <li>População: <span>{name.population}</span></li>
-              <li>Região: <span>{name.region}</span></li>
-              <li>Sub Região: <span>{name.subregion}</span></li>
-              <li>Capital: <span>{name.capital}</span></li>
+              <li>Nativo: <span>{informacao.name.official}</span></li>
+              <li>População: <span>{informacao.population}</span></li>
+              <li>Região: <span>{informacao.region}</span></li>
+              <li>Sub Região: <span>{informacao.subregion}</span></li>
+              <li>Capital: <span>{informacao.capital}</span></li>
             </Lista1>
             <Lista2>
-              <li>Domínio de nível superior: <span>{name.tld}</span></li>
-              <li>Moedas: <span>{name.tld}</span></li>
-              <li>Línguas: <span>{name.name.languages}</span></li>
+              <li>Domínio de nível superior: <span>{informacao.demonym}</span></li>
+              <li>Moedas: <span>{informacao.tld}</span></li>
+              <li>Línguas: <span>{informacao.tld}</span></li>
             </Lista2>
           </Coluna>
           <Front>
-            <li>Países Fronteiriços: {name.tld}</li>
+            <li>Países Fronteiriços: {informacao.tld}</li>
           </Front>
         </Centro>
       

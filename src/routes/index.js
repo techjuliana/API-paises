@@ -7,7 +7,7 @@ export default function Routes() {
     <Router>
       <>
         <Route exact path="/home" element={Home} />
-        <Route path="/pais/:id/" element={Pais} />
+        <Route path="/pais/:id" element={Pais} />
       </>
     </Router>
   );

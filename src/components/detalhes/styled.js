@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-padding-top:10rem;
+  padding-top: 10rem;
   margin: 5rem;
   justify-content: center;
   font-weight: normal;
   img {
     border-radius: 0.5rem;
-    width:30rem;
+    width: 30rem;
   }
   h5 {
     margin: 5px;
@@ -26,18 +26,17 @@ export const Voltar = styled.button`
 export const Coluna = styled.div`
   display: flex;
   justify-content: flex-start;
-
 `;
 
 export const Name = styled.h2`
   margin-bottom: 1rem;
-  margin-top:2rem;
+  margin-top: 2rem;
 `;
 
 export const Lista1 = styled.ol`
   list-style-type: none;
   margin-right: 5rem;
-li {
+  li {
     font-weight: bold;
     span {
       font-weight: normal;
@@ -47,7 +46,7 @@ li {
 
 export const Lista2 = styled.ol`
   list-style-type: none;
- 
+
   li {
     font-weight: bold;
     span {
@@ -57,9 +56,9 @@ export const Lista2 = styled.ol`
 `;
 
 export const Front = styled.div`
-margin-top:2rem;
-list-style-type: none;
-li {
+  margin-top: 2rem;
+  list-style-type: none;
+  li {
     font-weight: bold;
     span {
       font-weight: normal;
@@ -78,4 +77,11 @@ export const Centro = styled.div`
 export const ContainerPais = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const Carregando = styled.h2`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10rem;
 `;
