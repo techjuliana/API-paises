@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom:15rem;
+  margin-bottom:0rem;
   .Selecione,
   input {
     background: ${(props) => props.theme.button};
@@ -23,14 +23,3 @@ export const Centralizar = styled.div`
   background: ${(props) => props.theme.body};
 `;
 
-export const Pesquisa = styled.input`
-  border-radius: 5px;
-  padding: 1rem;
-  padding-right: 6rem;
-`;
-
-export const Selecione = styled.select`
-  padding: 1rem;
-  padding-right: 1rem;
-  border-radius: 5px;
-`;

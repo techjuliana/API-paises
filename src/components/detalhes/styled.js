@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
+padding-top:10rem;
   margin: 5rem;
   justify-content: center;
   font-weight: normal;
@@ -34,14 +34,37 @@ export const Name = styled.h2`
   margin-top:2rem;
 `;
 
-export const Lista1 = styled.div``;
+export const Lista1 = styled.ol`
+  list-style-type: none;
+  margin-right: 5rem;
+li {
+    font-weight: bold;
+    span {
+      font-weight: normal;
+    }
+  }
+`;
 
-export const Lista2 = styled.div`
-  margin-left: 2rem;
+export const Lista2 = styled.ol`
+  list-style-type: none;
+ 
+  li {
+    font-weight: bold;
+    span {
+      font-weight: normal;
+    }
+  }
 `;
 
 export const Front = styled.div`
 margin-top:2rem;
+list-style-type: none;
+li {
+    font-weight: bold;
+    span {
+      font-weight: normal;
+    }
+  }
 `;
 
 export const Info = styled.div``;

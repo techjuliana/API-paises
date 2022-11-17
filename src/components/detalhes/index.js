@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
 import {
   Voltar,
   Container,
@@ -11,19 +13,25 @@ import {
   Centro,
   ContainerPais,
 } from "./styled";
-export default function Detalhes({
-  pais,
-  img,
-  populacao,
-  regiao,
-  capital,
-  subregiao,
-  linguagem,
-  nativo,
-  dominio,
-  moeda,
-  front,
-}) {
+export default function Detalhes() {
+
+  const {id} = useParams();
+
+  const [informacao, setInformacao] = useState([]);
+
+  function pegandoInformacao() {
+    fetch("https://restcountries.com/v3.1/all")
+      .then((resp) => resp.json())
+      // .then((resp) => console.log(resp))
+      .then((name) => {
+        setInformacao(name);
+      });
+  }
+
+  useEffect(() => {
+    pegandoInformacao();
+  }, []);
+
   return (
     <Container>
       <Info>
@@ -33,29 +41,33 @@ export default function Detalhes({
           </Link>
         </Voltar>
       </Info>
-      <ContainerPais>
-        <img src={img} alt="" />
+      {informacao?.map((name, index) => (
+      <ContainerPais key={index}>
+        <img src={name.flags.png} alt="" />
         <Centro>
-          <Name>{pais}</Name>
+          <Name>{id}</Name>
           <Coluna>
             <Lista1>
-              <h5>Nome nativo: {nativo}</h5>
-              <h5>População: {populacao}</h5>
-              <h5>Região: {regiao}</h5>
-              <h5>Sub Região: {subregiao}</h5>
-              <h5>Capital: {capital}</h5>
+              <li>Nativo: <span>{name.name.official}</span></li>
+              <li>População: <span>{name.population}</span></li>
+              <li>Região: <span>{name.region}</span></li>
+              <li>Sub Região: <span>{name.subregion}</span></li>
+              <li>Capital: <span>{name.capital}</span></li>
             </Lista1>
             <Lista2>
-              <h5>Domínio de nível superior: {dominio}</h5>
-              <h5>Moedas: {moeda}</h5>
-              <h5>Línguas: {linguagem}</h5>
+              <li>Domínio de nível superior: <span>{name.tld}</span></li>
+              <li>Moedas: <span>{name.tld}</span></li>
+              <li>Línguas: <span>{name.name.languages}</span></li>
             </Lista2>
           </Coluna>
           <Front>
-            <h5>Países Fronteiriços: {front}</h5>
+            <li>Países Fronteiriços: {name.tld}</li>
           </Front>
         </Centro>
+      
       </ContainerPais>
+      ))}
     </Container>
+
   );
 }

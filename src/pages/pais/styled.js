@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
   margin: 5rem;
   justify-content: center;
   font-weight: normal;

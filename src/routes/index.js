@@ -6,8 +6,8 @@ export default function Routes() {
   return (
     <Router>
       <>
-        <Route exact path="/" element={Home} />
-        <Route path="/pais" element={Pais} />
+        <Route exact path="/home" element={Home} />
+        <Route path="/pais/:id/" element={Pais} />
       </>
     </Router>
   );

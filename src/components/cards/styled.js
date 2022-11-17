@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  margin-top:10rem;
+
   img {
     width: 17rem;
   }
@@ -18,8 +19,16 @@ export const Titulo = styled.h3`
   padding-top: 1rem;
 `;
 
-export const Informacao = styled.h3`
+export const Informacao = styled.ol`
   padding: 1rem;
+  list-style-type: none;
+  margin-left: 1rem;
+  li {
+    font-weight: bold;
+    span {
+      font-weight: normal;
+    }
+  }
 `;
 
 export const Card = styled.div`
@@ -27,8 +36,8 @@ export const Card = styled.div`
   border-radius: 0.5rem;
   background: ${(props) => props.theme.header};
   width: 17rem;
-  height: 100%;
-  padding-bottom: 1.7rem;
+  height: 22rem;
+  /* padding-bottom: 1.7rem; */
   margin: 2rem;
 
   img {

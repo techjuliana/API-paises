@@ -1,83 +1,79 @@
-import React, { useEffect,useState } from "react";
-import { Routes, Route} from "react-router-dom";
+import React, {useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./theme/theme";
 import Home from "./pages/home";
 import Pais from "./pages/pais";
 import Header from "./components/header";
-import Detalhes from "./components/detalhes";
-import Cards from "./components/cards";
-import { Grid } from "@mui/material";
+
 function App() {
   const [theme, setTheme] = useState("light");
-  const [informacao, setInformacao] = useState([]);
+  // const [informacao, setInformacao] = useState([]);
 
-  function pegandoInformacao() {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((resp) => resp.json())
-      // .then((resp) => console.log(resp))
-      .then((name) => {
-        setInformacao(name);
-      });
-  }
+  // function pegandoInformacao() {
+  //   fetch("https://restcountries.com/v3.1/all")
+  //     .then((resp) => resp.json())
+  //     // .then((resp) => console.log(resp))
+  //     .then((name) => {
+  //       setInformacao(name);
+  //     });
+  // }
 
-  useEffect(() => {
-    pegandoInformacao();
-  }, []);
+  // useEffect(() => {
+  //   pegandoInformacao();
+  // }, []);
 
   //MUDAR TEMA
+
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-     
-      <Routes> 
+      <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/pais" element={<Pais />} />
+        <Route path="/pais/:id" element={<Pais />} />
       </Routes>
 
-        <Header funcao={themeToggler} />
+      <Header funcao={themeToggler} />
+      {/* <Select api={pegandoInformacao} />   */}
 
-<Grid container>
+      {/* <Grid container>
         {informacao?.map((name, index) => (
-          <Grid item xs={4}>
-          <Cards 
-            key={index}
-            id={name.name.common}
-            img={name.flags.png}
-            pais={name.name.common}
-            populacao={name.population}
-            regiao={name.region}
-            capital={name.capital}
-          />
+          <Grid item xs={3} key={index}>
+            <Cards
+              key={index}
+              id={name.name.common}
+              img={name.flags.png}
+              pais={name.name.common}
+              populacao={name.population}
+              regiao={name.region}
+              capital={name.capital}
+            />
           </Grid>
         ))}
-        </Grid>
+      </Grid> */}
 
-        {informacao?.map((name, index) => (
-          <Detalhes
-            key={index}
-            img={name.flags.png}
-            pais={name.name.common}
-            populacao={name.population}
-            regiao={name.region}
-            capital={name.capital}
-            subregiao={name.subregion}
-            linguagem={name.name.languages}
-            nativo={name.name.official}
-            dominio={name.tld}
-            front={name.tld}
-            moeda={name.tld}
-          />
-        ))}
-
-        
-     
+      {/* {detalhes?.map((name, id) => (
+        <Detalhes
+          key={id}
+          img={name.flags.png}
+          pais={name.name.common}
+          populacao={name.population}
+          regiao={name.region}
+          capital={name.capital}
+          subregiao={name.subregion}
+          linguagem={name.name.languages}
+          nativo={name.name.official}
+          dominio={name.tld}
+          front={name.tld}
+          moeda={name.tld}
+        />
+      ))} */}
     </ThemeProvider>
   );
 }
-
 export default App;
