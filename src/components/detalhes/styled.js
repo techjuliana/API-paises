@@ -12,7 +12,7 @@ export const Container = styled.div`
     border-radius: 0.5rem;
     width: 30rem;
     @media (max-width: 800px) {
-      width: 20rem;
+      width: 16rem;
   }
   }
   h5 {
