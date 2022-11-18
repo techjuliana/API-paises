@@ -12,7 +12,7 @@ export const Container = styled.div`
     border-radius: 0.5rem;
     width: 30rem;
     @media (max-width: 800px) {
-      width: 16rem;
+      width: 13rem;
   }
   }
   h5 {
@@ -27,6 +27,9 @@ export const Voltar = styled.button`
   height: 2rem;
   margin-bottom: 4rem;
   border-radius: 5px;
+  @media (max-width: 800px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Coluna = styled.div`
@@ -98,4 +101,7 @@ export const Carregando = styled.h2`
   justify-content: center;
   text-align: center;
   margin-top: 10rem;
+  @media (max-width: 800px) {
+    font-size:10px;
+  }
 `;
