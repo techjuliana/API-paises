@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
@@ -19,13 +19,11 @@ function App() {
   //       setInformacao(name);
   //     });
   // }
-
   // useEffect(() => {
   //   pegandoInformacao();
   // }, []);
 
   //MUDAR TEMA
-
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
@@ -37,10 +35,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/pais/:id" element={<Pais />} />
       </Routes>
-
       <Header funcao={themeToggler} />
       {/* <Select api={pegandoInformacao} />   */}
-
       {/* <Grid container>
         {informacao?.map((name, index) => (
           <Grid item xs={3} key={index}>

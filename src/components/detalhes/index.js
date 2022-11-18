@@ -71,13 +71,15 @@ export default function Detalhes() {
               <li>Capital: <span>{informacao.capital}</span></li>
             </Lista1>
             <Lista2>
-              <li>Domínio de nível superior: <span>{informacao.demonym}</span></li>
-              <li>Moedas: <span>{informacao.tld}</span></li>
-              <li>Línguas: <span>{informacao.tld}</span></li>
+              <li>Domínio de nível superior: <span>{informacao.tld}</span></li>
+              <li>Moedas: <span>{informacao.currencies[Object.keys(informacao.currencies)[0]].name}</span></li>
+              <li>Línguas: <span>{informacao.languages[Object.keys(informacao.languages)[0]]}</span></li>
             </Lista2>
           </Coluna>
           <Front>
-            <li>Países Fronteiriços: {informacao.tld}</li>
+          
+                               
+            <li>Países Fronteiriços: {informacao.borders[Object.keys(informacao.borders)[0]]}</li>
           </Front>
         </Centro>
       

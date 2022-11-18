@@ -1,10 +1,8 @@
 import { Card, Container, Titulo, Informacao, Grid } from "./styled";
 import React, { useEffect, useState } from "react";
-// import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 export default function Cards() {
   const [informacao, setInformacao] = useState([]);
-
   function pegandoInformacao() {
     fetch("https://restcountries.com/v3.1/all")
       .then((resp) => resp.json())
