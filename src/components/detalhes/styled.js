@@ -6,13 +6,16 @@ export const Container = styled.div`
   justify-content: center;
   font-weight: normal;
   @media (max-width: 800px) {
+    display:flex;
+    flex-direction: column;
     padding-top: 0rem;
+    margin: 0rem;
   }
   img {
     border-radius: 0.5rem;
     width: 30rem;
     @media (max-width: 800px) {
-      width: 13rem;
+      max-width: 10rem;
   }
   }
   h5 {
@@ -39,7 +42,7 @@ export const Coluna = styled.div`
     flex-direction: column;
   }
 `;
-
+                                                                      
 export const Name = styled.h2`
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -48,6 +51,10 @@ export const Name = styled.h2`
 export const Lista1 = styled.ol`
   list-style-type: none;
   margin-right: 5rem;
+  @media (max-width: 800px) {
+    margin-right: 0rem;
+    
+  }
   li {
     font-weight: bold;
     span {
@@ -76,6 +83,7 @@ export const Front = styled.div`
       font-weight: normal;
     }
   }
+
 `;
 
 export const Info = styled.div`
@@ -86,6 +94,9 @@ export const Centro = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 3rem;
+  @media (max-width: 800px) {
+    margin-left: 0rem;
+  }
 `;
 
 export const ContainerPais = styled.div`
