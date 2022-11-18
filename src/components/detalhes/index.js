@@ -65,7 +65,7 @@ export default function Detalhes() {
           <Coluna>
             <Lista1>
               <li>Nativo: <span>{informacao.name.official}</span></li>
-              <li>População: <span>{informacao.population}</span></li>
+              <li>População: <span> {informacao.population.toLocaleString()}</span></li>
               <li>Região: <span>{informacao.region}</span></li>
               <li>Sub Região: <span>{informacao.subregion}</span></li>
               <li>Capital: <span>{informacao.capital}</span></li>
