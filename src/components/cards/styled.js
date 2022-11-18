@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top:10rem;
+  margin-top: 10rem;
 
   img {
     width: 17rem;
@@ -52,4 +52,14 @@ export const Card = styled.div`
     padding-left: 1rem;
     margin: 3px;
   }
+`;
+
+export const Grid = styled.section`
+  box-sizing: border-box;
+  display: grid;
+  justify-content: center;
+  gap: 5px;
+  grid-template-columns: 100px 100px 100px 100px;
+  display: flex;
+  flex-wrap: wrap;
 `;
