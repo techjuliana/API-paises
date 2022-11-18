@@ -5,9 +5,15 @@ export const Container = styled.div`
   margin: 5rem;
   justify-content: center;
   font-weight: normal;
+  @media (max-width: 800px) {
+    padding-top: 0rem;
+  }
   img {
     border-radius: 0.5rem;
     width: 30rem;
+    @media (max-width: 800px) {
+      width: 20rem;
+  }
   }
   h5 {
     margin: 5px;
@@ -26,6 +32,9 @@ export const Voltar = styled.button`
 export const Coluna = styled.div`
   display: flex;
   justify-content: flex-start;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const Name = styled.h2`
@@ -66,7 +75,9 @@ export const Front = styled.div`
   }
 `;
 
-export const Info = styled.div``;
+export const Info = styled.div`
+ 
+`;
 
 export const Centro = styled.div`
   display: flex;
@@ -77,6 +88,9 @@ export const Centro = styled.div`
 export const ContainerPais = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const Carregando = styled.h2`

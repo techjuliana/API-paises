@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 0rem;
-
   .Selecione,
   input {
     background: ${(props) => props.theme.button};
