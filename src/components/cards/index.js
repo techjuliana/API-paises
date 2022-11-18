@@ -1,46 +1,25 @@
-import { Card, Container, Titulo, Informacao, Grid } from "./styled";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-export default function Cards() {
-  const [informacao, setInformacao] = useState([]);
-  function pegandoInformacao() {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((resp) => resp.json())
-      // .then((resp) => console.log(resp))
-      .then((name) => {
-        setInformacao(name);
-      });
-  }
+import { Container, Titulo, Informacao, Card, Grid } from "./styled";
 
-  useEffect(() => {
-    pegandoInformacao();
-  }, []);
-
+export default function Cards({ nome, img, populacao, regiao, capital }) {
   return (
     <div>
       <Container>
-        <Grid container>
-          {informacao?.map((name, index) => (
-            <Grid key={index}>
-              <Card key={index}>
-                <Link to={`/pais/${name.name.common}`}>
-                  <img src={name.flags.png} alt="" />
-                </Link>
-                <Titulo>{name.name.common}</Titulo>
-                <Informacao>
-                  <li>
-                    População: <span> {name.population.toLocaleString()}</span>
-                  </li>
-                  <li>
-                    Região: <span>{name.region}</span>
-                  </li>
-                  <li>
-                    Capital: <span>{name.capital}</span>
-                  </li>
-                </Informacao>
-              </Card>
-            </Grid>
-          ))}
+        <Grid>
+          <Card>
+            <img src={img} alt="" />
+            <Titulo>{nome}</Titulo>
+            <Informacao>
+              <li>
+                População: <span>{populacao}</span>
+              </li>
+              <li>
+                Região: <span>{regiao}</span>
+              </li>
+              <li>
+                Capital: <span>{capital}</span>
+              </li>
+            </Informacao>
+          </Card>
         </Grid>
       </Container>
     </div>

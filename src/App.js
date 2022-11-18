@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
@@ -9,19 +9,6 @@ import Header from "./components/header";
 
 function App() {
   const [theme, setTheme] = useState("light");
-  // const [informacao, setInformacao] = useState([]);
-
-  // function pegandoInformacao() {
-  //   fetch("https://restcountries.com/v3.1/all")
-  //     .then((resp) => resp.json())
-  //     // .then((resp) => console.log(resp))
-  //     .then((name) => {
-  //       setInformacao(name);
-  //     });
-  // }
-  // useEffect(() => {
-  //   pegandoInformacao();
-  // }, []);
 
   //MUDAR TEMA
   const themeToggler = () => {
@@ -36,22 +23,6 @@ function App() {
         <Route path="/pais/:id" element={<Pais />} />
       </Routes>
       <Header funcao={themeToggler} />
-      {/* <Select api={pegandoInformacao} />   */}
-      {/* <Grid container>
-        {informacao?.map((name, index) => (
-          <Grid item xs={3} key={index}>
-            <Cards
-              key={index}
-              id={name.name.common}
-              img={name.flags.png}
-              pais={name.name.common}
-              populacao={name.population}
-              regiao={name.region}
-              capital={name.capital}
-            />
-          </Grid>
-        ))}
-      </Grid> */}
 
       {/* {detalhes?.map((name, id) => (
         <Detalhes
