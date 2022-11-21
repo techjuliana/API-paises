@@ -1,15 +1,14 @@
-## `Plataforma de busca e informaçōes de paises em ReactJS usando styled components e API Fetch`
+## Plataforma de busca e informaçōes de paises em ReactJS usando styled components e API Fetch
 
 <hr>
 
-### `Projeto Design ⬇️`
+### Projeto Design ⬇️
 ![image](https://raw.githubusercontent.com/techjuliana/API-paises/main/design/desktop-preview.jpg)
 
 
 
 
 In the project directory, you can run:
-
 ### `npm start`
 
 ## Tech Juliana
