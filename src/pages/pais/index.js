@@ -7,7 +7,7 @@ import Detalhes from "../../components/detalhes";
 export default function Pais() {
   const { id } = useParams();
   const [informacao, setInformacao] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [carregamento, setCarregamento] = useState(true);
 
   useEffect(() => {
     async function carregarDetalhes() {
@@ -15,7 +15,7 @@ export default function Pais() {
         .get(`/name/${id}`)
         .then((response) => {
           setInformacao(response.data);
-          setLoading(false);
+          setCarregamento(false);
         })
         .catch(() => {
           <h1>Detalhes não encontrado</h1>;
@@ -29,11 +29,9 @@ export default function Pais() {
     };
   }, []);
 
-  if (loading) {
+  if (carregamento) {
     return (
-      <Carregando>
-       Carregando detalhes...
-      </Carregando>
+      <Carregando> Carregando detalhes...</Carregando>
     );
   }
 
@@ -57,9 +55,7 @@ export default function Pais() {
           nativo={informacao.name.official}
           dominio={informacao.tld}
           fronteira={informacao.borders[Object.keys(informacao.borders)[0]]}
-          moeda={
-            informacao.currencies[Object.keys(informacao.currencies)[0]].name
-          }
+          moeda={informacao.currencies[Object.keys(informacao.currencies)[0]].name}
         />
       ))}
     </Container>

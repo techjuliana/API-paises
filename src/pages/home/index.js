@@ -12,7 +12,7 @@ import {
 } from "./styled";
 
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false); //seu estado inicial é falso
+  const [paisCarregado, setPaisCarregado] = useState(false); //seu estado inicial é falso
   const [paises, setPaises] = useState([]); //inicia com uma lista vazia
   const [paisesFiltrados, setPaisesFiltrados] = useState([]);
   const [buscarPais, setBuscarPais] = useState("");
@@ -25,7 +25,7 @@ export default function Home() {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((results) => {
-        setIsLoaded(true);
+        setPaisCarregado(true);
         setPaises(results);
         // console.log(results)
       });
@@ -61,14 +61,14 @@ export default function Home() {
             <Pesquisa
               type="text"
               placeholder="Procurar por pais..."
-              disabled={isLoaded ? false : true}
+              disabled={paisCarregado ? false : true}
               value={buscarPais}
               onChange={handleChangeProcurandoPais}
             />
       
           <div>
             <Selecione
-              disabled={isLoaded ? false : true}
+              disabled={paisCarregado ? false : true}
               onChange={handleChangeSelecionandoRegiao} 
             >
               <option value="">Todos os Paises</option>
@@ -100,7 +100,7 @@ export default function Home() {
           ))
         ) : (
           <div>
-            <div className={` ${isLoaded ? "" : "hidden"}`}>
+            <div className={` ${paisCarregado ? "" : "hidden"}`}>
               <ErroMensagemPais>Pais não encontrado :(</ErroMensagemPais>
             </div>
           </div>
