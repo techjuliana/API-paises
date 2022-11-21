@@ -1,16 +1,9 @@
 import styled from "styled-components";
 
-export const Cardst = styled.div`
-  margin: 1rem;
-  flex-wrap: wrap;
-`;
-
 export const Grid = styled.section`
   box-sizing: border-box;
   display: grid;
   justify-content: center;
-  gap: 5px;
-  grid-template-columns: 100px 100px 100px 100px;
   display: flex;
   flex-wrap: wrap;
 `;
@@ -25,6 +18,7 @@ export const Selecione = styled.select`
   padding: 1rem;
   padding-right: 1rem;
   border-radius: 5px;
+  width: 100%;
   background: ${(props) => props.theme.button};
 `;
 
@@ -38,7 +32,7 @@ export const ErroMensagemPais = styled.h2`
 export const ContainerFiltro = styled.form`
   display: flex;
   justify-content: center;
-  margin-bottom: 0rem;
+  margin-bottom: 12rem;
   input {
     background: ${(props) => props.theme.button};
     @media (max-width: 800px) {

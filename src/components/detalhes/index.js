@@ -20,6 +20,7 @@ export default function Detalhes() {
   const [informacao, setInformacao] = useState({});
   const [loading, setLoading] = useState(true);
 
+  
   useEffect(() => {
     async function carregarDetalhes() {
       await api
@@ -36,7 +37,7 @@ export default function Detalhes() {
     carregarDetalhes();
 
     return () => {
-      console.log("sucesso :)");
+      console.log("sucesso api:)");
     };
   }, []);
 
@@ -96,7 +97,7 @@ export default function Detalhes() {
                   </span>
                 </li>
                 <li>
-                  Línguas:{" "}
+                  Línguas:
                   <span>
                     {informacao.languages[Object.keys(informacao.languages)[0]]}
                   </span>
@@ -105,7 +106,7 @@ export default function Detalhes() {
             </Coluna>
             <Front>
               <li>
-                Países Fronteiriços:{" "}
+                Países Fronteiriços:
                 {informacao.borders[Object.keys(informacao.borders)[0]]}
               </li>
             </Front>

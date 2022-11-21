@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10rem;
+  margin: 2rem;
 
   img {
     width: 17rem;
@@ -37,8 +37,6 @@ export const Card = styled.div`
   background: ${(props) => props.theme.header};
   width: 17rem;
   height: 22rem;
-  /* padding-bottom: 1.7rem; */
-  margin: 2rem;
 
   img {
     border-radius: 0.5rem 0.5rem 0 0;
@@ -58,8 +56,6 @@ export const Grid = styled.section`
   box-sizing: border-box;
   display: grid;
   justify-content: center;
-  gap: 5px;
-  grid-template-columns: 100px 100px 100px 100px;
   display: flex;
   flex-wrap: wrap;
 `;

@@ -11,83 +11,80 @@ import {
 } from "./styled";
 
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
-  const [selectInput, setSelectInput] = useState("");
-  const regionList = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+  const [isLoaded, setIsLoaded] = useState(false); //seu estado inicial é falso
+  const [paises, setPaises] = useState([]); //inicia com uma lista vazia
+  const [paisesFiltrados, setPaisesFiltrados] = useState([]);
+  const [buscarPais, setBuscarPais] = useState("");
+  const [selecionarRegiao, setSelecionarRegiao] = useState("");
+  
+  const listaRegioesAPI = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
+  const pegandoDadosAPI = () => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((results) => {
         setIsLoaded(true);
-        setItems(results);
+        setPaises(results);
         // console.log(results)
       });
   };
-  const handleChangeInput = (e) => {
-    setSearchInput(e.target.value);
+
+  useEffect(() => {
+    pegandoDadosAPI();
+  }, []);
+
+
+  const handleChangeProcurandoPais = (evento) => {
+    setBuscarPais(evento.target.value);
   };
-  const handleChangeSelect = (e) => {
-    setSelectInput(e.target.value);
+  const handleChangeSelecionandoRegiao = (evento) => {
+    setSelecionarRegiao(evento.target.value);
   };
 
   useEffect(() => {
-    const result = items.filter(
-      (item) =>
-        (!searchInput ||
-          item.name.common.toLowerCase().includes(searchInput.toLowerCase())) &&
-        (!selectInput || item.region === selectInput)
+    const result = paises.filter(
+      (pais) =>
+        (!buscarPais ||
+          pais.name.common.toLowerCase().includes(buscarPais.toLowerCase())) &&
+        (!selecionarRegiao || pais.region === selecionarRegiao)
     );
-    setFilteredItems(result);
+    setPaisesFiltrados(result);
     console.log(result);
-  }, [searchInput, items, selectInput]);
+  }, [buscarPais, paises, selecionarRegiao]);
 
   return (
     <div>
       <ContainerFiltro>
         <CentralizarFiltro>
-          <div className={isLoaded ? "form__search" : "form__search skeleton"}>
-            <ion-icon name="search"></ion-icon>
+      
             <Pesquisa
               type="text"
-              placeholder="Search for a country"
+              placeholder="Procurar por pais..."
               disabled={isLoaded ? false : true}
-              value={searchInput}
-              onChange={handleChangeInput}
+              value={buscarPais}
+              onChange={handleChangeProcurandoPais}
             />
-          </div>
-          <div
-            className={
-              isLoaded
-                ? "form__select-wrapper"
-                : "form__select-wrapper skeleton"
-            }
-          >
+      
+          <div>
             <Selecione
               disabled={isLoaded ? false : true}
-              onChange={handleChangeSelect}
+              onChange={handleChangeSelecionandoRegiao} 
             >
-              <option value="">All</option>
-              {regionList.map((region) => (
+              <option value="">Todos os Paises</option>
+              {listaRegioesAPI.map((region) => (
                 <option value={region} key={region}>
                   {region}
                 </option>
               ))}
             </Selecione>
           </div>
+          
         </CentralizarFiltro>
       </ContainerFiltro>
 
       <Grid>
-        {filteredItems.length > 0 ? (
-          filteredItems.map((item, index) => (
+        {paisesFiltrados.length > 0 ? (
+          paisesFiltrados.map((item, index) => (
             <div key={index}>
               <Link to={`/pais/${item.name.common}`}>
                 <Card
