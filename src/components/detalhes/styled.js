@@ -87,7 +87,6 @@ export const Front = styled.div`
 `;
 
 export const Info = styled.div`
- 
 `;
 
 export const Centro = styled.div`

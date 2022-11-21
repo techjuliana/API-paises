@@ -1,118 +1,72 @@
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import api from "./../../services/api";
 import {
-  Voltar,
   Container,
   Name,
   Lista1,
   Lista2,
   Front,
   Coluna,
-  Info,
   Centro,
   ContainerPais,
-  Carregando,
 } from "./styled";
-export default function Detalhes() {
-  const { id } = useParams();
-  const [informacao, setInformacao] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  
-  useEffect(() => {
-    async function carregarDetalhes() {
-      await api
-        .get(`/name/${id}`)
-        .then((response) => {
-          setInformacao(response.data);
-          setLoading(false);
-        })
-        .catch(() => {
-          <h1>Pais não encontrado</h1>;
-        });
-    }
-
-    carregarDetalhes();
-
-    return () => {
-      console.log("sucesso api:)");
-    };
-  }, []);
-
-  if (loading) {
-    return (
-      <Carregando>
-        <h1>Carregando detalhes...</h1>
-      </Carregando>
-    );
-  }
-
+export default function Detalhes({
+  img,
+  populacao,
+  regiao,
+  capital,
+  subregiao,
+  linguagem,
+  nativo,
+  dominio,
+  moeda,
+  fronteira,
+  pais,
+}) {
   return (
     <Container>
-      <Info>
-        <Voltar>
-          <Link to="/">
-            <h4>Voltar</h4>
-          </Link>
-        </Voltar>
-      </Info>
-      {informacao?.map((informacao, index) => (
-        <ContainerPais key={index}>
-          <img src={informacao.flags.png} alt="" />
-          <Centro>
-            <Name>{id}</Name>
-            <Coluna>
-              <Lista1>
-                <li>
-                  Nativo: <span>{informacao.name.official}</span>
-                </li>
-                <li>
-                  População:{" "}
-                  <span> {informacao.population.toLocaleString()}</span>
-                </li>
-                <li>
-                  Região: <span>{informacao.region}</span>
-                </li>
-                <li>
-                  Sub Região: <span>{informacao.subregion}</span>
-                </li>
-                <li>
-                  Capital: <span>{informacao.capital}</span>
-                </li>
-              </Lista1>
-              <Lista2>
-                <li>
-                  Domínio de nível superior: <span>{informacao.tld}</span>
-                </li>
-                <li>
-                  Moedas:{" "}
-                  <span>
-                    {
-                      informacao.currencies[
-                        Object.keys(informacao.currencies)[0]
-                      ].name
-                    }
-                  </span>
-                </li>
-                <li>
-                  Línguas:
-                  <span>
-                    {informacao.languages[Object.keys(informacao.languages)[0]]}
-                  </span>
-                </li>
-              </Lista2>
-            </Coluna>
-            <Front>
+      <ContainerPais>
+        <img src={img} alt="" />
+        <Centro>
+          <Name>{pais}</Name>
+          <Coluna>
+            <Lista1>
               <li>
-                Países Fronteiriços:
-                {informacao.borders[Object.keys(informacao.borders)[0]]}
+                Nativo: <span>{nativo}</span>
               </li>
-            </Front>
-          </Centro>
-        </ContainerPais>
-      ))}
+              <li>
+                População: <span> {populacao}</span>
+              </li>
+              <li>
+                Região: <span>{regiao}</span>
+              </li>
+              <li>
+                Sub Região: <span>{subregiao}</span>
+              </li>
+              <li>
+                Capital: <span>{capital}</span>
+              </li>
+            </Lista1>
+            <Lista2>
+              <li>
+                Domínio de nível superior: <span>{dominio}</span>
+              </li>
+              <li>
+                Moedas:
+                <span>{moeda}</span>
+              </li>
+              <li>
+                Línguas:
+                <span>{linguagem}</span>
+              </li>
+            </Lista2>
+          </Coluna>
+          <Front>
+            <li>
+              Países Fronteiriços:
+              {fronteira}
+            </li>
+          </Front>
+        </Centro>
+      </ContainerPais>
     </Container>
   );
 }

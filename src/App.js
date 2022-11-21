@@ -23,23 +23,6 @@ function App() {
         <Route path="/pais/:id" element={<Pais />} />
       </Routes>
       <Header funcao={themeToggler} />
-
-      {/* {detalhes?.map((name, id) => (
-        <Detalhes
-          key={id}
-          img={name.flags.png}
-          pais={name.name.common}
-          populacao={name.population}
-          regiao={name.region}
-          capital={name.capital}
-          subregiao={name.subregion}
-          linguagem={name.name.languages}
-          nativo={name.name.official}
-          dominio={name.tld}
-          front={name.tld}
-          moeda={name.tld}
-        />
-      ))} */}
     </ThemeProvider>
   );
 }
