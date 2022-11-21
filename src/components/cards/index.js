@@ -2,7 +2,6 @@ import { Container, Titulo, Informacao, Card, Grid } from "./styled";
 
 export default function Cards({ nome, img, populacao, regiao, capital }) {
   return (
-    <div>
       <Container>
         <Grid>
           <Card>
@@ -22,6 +21,5 @@ export default function Cards({ nome, img, populacao, regiao, capital }) {
           </Card>
         </Grid>
       </Container>
-    </div>
   );
 }

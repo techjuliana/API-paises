@@ -18,21 +18,21 @@ export default function Pais() {
           setLoading(false);
         })
         .catch(() => {
-          <h1>Pais não encontrado</h1>;
+          <h1>Detalhes não encontrado</h1>;
         });
     }
 
     carregarDetalhes();
 
     return () => {
-      console.log("sucesso api:)");
+      console.log("carregado com sucesso");
     };
   }, []);
 
   if (loading) {
     return (
       <Carregando>
-        <h1>Carregando detalhes...</h1>
+       Carregando detalhes...
       </Carregando>
     );
   }
@@ -41,9 +41,7 @@ export default function Pais() {
     <Container>
       <Info>
         <Voltar>
-          <Link to="/">
-            <h4>Voltar</h4>
-          </Link>
+          <Link to="/">Voltar</Link>
         </Voltar>
       </Info>
       {informacao?.map((informacao, id) => (

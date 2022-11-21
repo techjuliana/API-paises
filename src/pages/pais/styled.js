@@ -21,6 +21,7 @@ export const Voltar = styled.button`
   margin-top:4rem;
   margin-bottom: 4rem;
   border-radius: 5px;
+  font-weight:bold;
   @media (max-width: 800px) {
     margin-bottom: 1rem;
   }

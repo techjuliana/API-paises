@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./../../components/cards";
 import { Link } from "react-router-dom";
+// import api from "../../services/api";
 import {
   Grid,
   ErroMensagemPais,
@@ -20,6 +21,7 @@ export default function Home() {
   const listaRegioesAPI = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   const pegandoDadosAPI = () => {
+    // api.fetch(`/all`)
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((results) => {
@@ -32,7 +34,6 @@ export default function Home() {
   useEffect(() => {
     pegandoDadosAPI();
   }, []);
-
 
   const handleChangeProcurandoPais = (evento) => {
     setBuscarPais(evento.target.value);
@@ -88,7 +89,6 @@ export default function Home() {
             <div key={index}>
               <Link to={`/pais/${item.name.common}`}>
                 <Card
-                  key={index}
                   img={item.flags.png}
                   nome={item.name.common}
                   populacao={item.population.toLocaleString()}

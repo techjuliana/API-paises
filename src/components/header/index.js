@@ -1,9 +1,9 @@
 import { Container, Titulo, Tema } from "./styled";
-export default function Header({ funcao }) {
+export default function Header({ mudarTemaFuncao }) {
   return (
     <Container>
       <Titulo>Onde no mundo ?</Titulo>
-      <Tema onClick={() => funcao()}> 🌙 Tema Escuro </Tema>
+      <Tema onClick={() => mudarTemaFuncao()}> 🌙 Tema Escuro </Tema>
     </Container>
   );
 }

@@ -23,12 +23,6 @@ export const Informacao = styled.ol`
   padding: 1rem;
   list-style-type: none;
   margin-left: 1rem;
-  li {
-    font-weight: bold;
-    span {
-      font-weight: normal;
-    }
-  }
 `;
 
 export const Card = styled.div`

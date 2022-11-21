@@ -62,7 +62,7 @@ export default function Detalhes({
           <Front>
             <li>
               Países Fronteiriços:
-              {fronteira}
+              <span>{fronteira}</span>
             </li>
           </Front>
         </Centro>

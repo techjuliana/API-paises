@@ -40,34 +40,15 @@ export const Lista1 = styled.ol`
   @media (max-width: 800px) {
     margin-right: 0rem;
   }
-  li {
-    font-weight: bold;
-    span {
-      font-weight: normal;
-    }
-  }
 `;
 
 export const Lista2 = styled.ol`
   list-style-type: none;
-
-  li {
-    font-weight: bold;
-    span {
-      font-weight: normal;
-    }
-  }
 `;
 
 export const Front = styled.div`
   margin-top: 2rem;
   list-style-type: none;
-  li {
-    font-weight: bold;
-    span {
-      font-weight: normal;
-    }
-  }
 `;
 
 export const Centro = styled.div`

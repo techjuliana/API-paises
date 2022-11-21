@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/pais/:id" element={<Pais />} />
       </Routes>
-      <Header funcao={themeToggler} />
+      <Header mudarTemaFuncao={themeToggler} />
     </ThemeProvider>
   );
 }
