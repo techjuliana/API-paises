@@ -91,7 +91,7 @@ export default function Home() {
                   key={index}
                   img={item.flags.png}
                   nome={item.name.common}
-                  populacao={item.population}
+                  populacao={item.population.toLocaleString()}
                   regiao={item.region}
                   capital={item.capital}
                 />

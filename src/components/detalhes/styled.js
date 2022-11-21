@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding-top: 10rem;
-  margin: 5rem;
   justify-content: center;
   font-weight: normal;
   @media (max-width: 800px) {
-    display:flex;
+    display: flex;
     flex-direction: column;
     padding-top: 0rem;
     margin: 0rem;
@@ -16,22 +14,10 @@ export const Container = styled.div`
     width: 30rem;
     @media (max-width: 800px) {
       max-width: 10rem;
-  }
+    }
   }
   h5 {
     margin: 5px;
-  }
-`;
-
-export const Voltar = styled.button`
-  background: ${(props) => props.theme.header};
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-  width: 5rem;
-  height: 2rem;
-  margin-bottom: 4rem;
-  border-radius: 5px;
-  @media (max-width: 800px) {
-    margin-bottom: 1rem;
   }
 `;
 
@@ -42,7 +28,7 @@ export const Coluna = styled.div`
     flex-direction: column;
   }
 `;
-                                                                      
+
 export const Name = styled.h2`
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -53,7 +39,6 @@ export const Lista1 = styled.ol`
   margin-right: 5rem;
   @media (max-width: 800px) {
     margin-right: 0rem;
-    
   }
   li {
     font-weight: bold;
@@ -83,10 +68,6 @@ export const Front = styled.div`
       font-weight: normal;
     }
   }
-
-`;
-
-export const Info = styled.div`
 `;
 
 export const Centro = styled.div`
@@ -103,15 +84,5 @@ export const ContainerPais = styled.div`
   flex-direction: row;
   @media (max-width: 800px) {
     flex-direction: column;
-  }
-`;
-
-export const Carregando = styled.h2`
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-top: 10rem;
-  @media (max-width: 800px) {
-    font-size:10px;
   }
 `;
