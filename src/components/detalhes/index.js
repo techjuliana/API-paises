@@ -3,7 +3,6 @@ import {
   Name,
   Lista1,
   Lista2,
-  Front,
   Coluna,
   Centro,
   ContainerPais,
@@ -18,7 +17,6 @@ export default function Detalhes({
   nativo,
   dominio,
   moeda,
-  fronteira,
   pais,
 }) {
   return (
@@ -59,12 +57,6 @@ export default function Detalhes({
               </li>
             </Lista2>
           </Coluna>
-          <Front>
-            <li>
-              Países Fronteiriços:
-              <span>{fronteira || "Sem países fronteiriços"}</span>
-            </li>
-          </Front>
         </Centro>
       </ContainerPais>
     </Container>

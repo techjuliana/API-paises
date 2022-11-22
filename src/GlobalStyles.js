@@ -24,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: bold;
     span {
       font-weight: normal;
+      padding-left:5px;
     }
   }
 `;

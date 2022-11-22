@@ -46,10 +46,6 @@ export const Lista2 = styled.ol`
   list-style-type: none;
 `;
 
-export const Front = styled.div`
-  margin-top: 2rem;
-  list-style-type: none;
-`;
 
 export const Centro = styled.div`
   display: flex;
