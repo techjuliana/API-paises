@@ -43,20 +43,21 @@ export default function Pais() {
         </Voltar>
       </Info>
       {informacao?.map((informacao, id) => (
+        <div key={id}>
         <Detalhes
-          key={id}
           img={informacao.flags.png}
           pais={informacao.name.common}
           populacao={informacao.population.toLocaleString()}
           regiao={informacao.region}
           capital={informacao.capital}
           subregiao={informacao.subregion}
-          linguagem={informacao.languages[Object.keys(informacao.languages)[0]]}
+          // linguagem={informacao?.languages[Object.keys(informacao.languages)[0]]}
           nativo={informacao.name.official}
           dominio={informacao.tld}
-          fronteira={informacao.borders[Object.keys(informacao.borders)[0]]}
-          moeda={informacao.currencies[Object.keys(informacao.currencies)[0]].name}
+          // fronteira={informacao?.borders[Object.keys(informacao.borders)[0]]}
+          // moeda={informacao?.currencies[Object.keys(informacao.currencies)[0]].name}
         />
+        </div>
       ))}
     </Container>
   );

@@ -62,7 +62,7 @@ export default function Detalhes({
           <Front>
             <li>
               Países Fronteiriços:
-              <span>{fronteira}</span>
+              <span>{fronteira || "Sem países fronteiriços"}</span>
             </li>
           </Front>
         </Centro>

@@ -21,7 +21,6 @@ export default function Home() {
   const listaRegioesAPI = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   const pegandoDadosAPI = () => {
-    // api.fetch(`/all`)
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((results) => {
@@ -57,7 +56,6 @@ export default function Home() {
     <div>
       <ContainerFiltro>
         <CentralizarFiltro>
-      
             <Pesquisa
               type="text"
               placeholder="Procurar por pais..."
@@ -79,7 +77,6 @@ export default function Home() {
               ))}
             </Selecione>
           </div>
-          
         </CentralizarFiltro>
       </ContainerFiltro>
 
@@ -100,8 +97,9 @@ export default function Home() {
           ))
         ) : (
           <div>
-            <div className={` ${paisCarregado ? "" : "hidden"}`}>
-              <ErroMensagemPais>Pais não encontrado :(</ErroMensagemPais>
+            <div className={` ${paisCarregado ? "" : "MensagemErro"}`}>
+              <ErroMensagemPais>Pais não encontrado :(
+              </ErroMensagemPais>
             </div>
           </div>
         )}
