@@ -51,10 +51,10 @@ export default function Pais() {
           regiao={informacao.region}
           capital={informacao.capital}
           subregiao={informacao.subregion}
-          linguagem={informacao?.languages[Object.keys(informacao.languages)[0]]}
+          linguagem={informacao.languages[Object.keys(informacao.languages)[0]]}
           nativo={informacao.name.official}
           dominio={informacao.tld}
-          moeda={informacao?.currencies[Object.keys(informacao.currencies)[0]].name}
+          moeda={informacao.currencies[Object.keys(informacao.currencies)[0]].name}
         />
         </div>
       ))}

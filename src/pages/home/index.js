@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./../../components/cards";
 import { Link } from "react-router-dom";
-// import api from "../../services/api";
+
 import {
   Grid,
   ErroMensagemPais,
@@ -41,7 +41,7 @@ export default function Home() {
     setSelecionarRegiao(evento.target.value);
   };
 
-  useEffect(() => {
+  useEffect(() => { 
     const result = paises.filter(
       (pais) =>
         (!buscarPais ||
