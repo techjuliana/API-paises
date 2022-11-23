@@ -44,8 +44,8 @@ export default function Home() {
   useEffect(() => { 
     const result = paises.filter(
       (pais) =>
-        (!buscarPais ||
-          pais.name.common.toLowerCase().includes(buscarPais.toLowerCase())) &&
+        (!buscarPais || pais.name.common.toLowerCase().includes
+        (buscarPais.toLowerCase())) && 
         (!selecionarRegiao || pais.region === selecionarRegiao)
     );
     setPaisesFiltrados(result);
